@@ -10,3 +10,7 @@ env/
 .vscode/launch.json
 media
 node_modules
+
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
