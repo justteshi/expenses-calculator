@@ -1,7 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div>
-    <h1>Home page partial</h1>
+<div class=" container grid grid-cols-3 grid-rows-6 gap-2">
+    <div class="row-span-1 bg-gray-200 p-5 rounded-lg text-center text-lg ">Add Article</div>
+    <div class="row-span-3 bg-red-200 p-5 rounded-lg">1</div>
+    <div class="row-span-3 bg-red-200 p-5 rounded-lg">1</div>
+    <div class="row-span-5 bg-gray-200 p-5 rounded-lg border-black">
+        <form action="" method="">
+            <div class="m-4">
+                <lable></lable>
+                <input class="p-4 w-full rounded-lg">
+            </div>
+            <div class="m-4">
+                <lable></lable>
+                <input class="p-4 w-full rounded-lg">
+            </div>
+            <div class="m-4">
+                <lable></lable>
+                <input class="p-4 w-full rounded-lg">
+            </div>
+            <div class="m-4  flex justify-center">
+                <button class="w-full p-4 rounded-lg bg-green-300 font-bold" type="submit">
+                    Send
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="row-span-3 bg-red-200 p-5 rounded-lg">1</div>
+    <div class="row-span-3 bg-red-200 p-5 rounded-lg">1</div>
+</div>
+
+<div class="container w-full bg-gray-500 p-5 mt-10 rounded-lg">
+    fillters
+</div>
+
+<div class="container mt-10">
+    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full">article</div>
+    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full">article</div>
+    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full">article</div>
+    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full">article</div>
+    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full">article</div>
+
 </div>
 {% endblock %}
