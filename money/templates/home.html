@@ -17,7 +17,7 @@
         <p class="absolute left-0 top-0 pt-2 pb-2 pl-6 pr-6 rounded-tl-lg rounded-br-lg bg-indigo-500">Last Month</p>
         <div class="m-auto">
             <p class="text-center font-bold text-6xl">{{expenses_today}}<span class="text-lg">лв.</span></p>
-            <p class="text-center">15th July - 15th August</p>
+            <p class="text-center">15th {{ today_date|date:"F" }} - 15th {{ next_month|date:"F"  }}</p>
         </div>
     </div>
     <!-- Add Exprense Form -->
@@ -55,6 +55,8 @@
         <p class="absolute left-0 top-0 pt-2 pb-2 pl-6 pr-6 rounded-tl-lg rounded-br-lg bg-indigo-500">All Time</p>
         <div class="m-auto">
             <p class="text-center font-bold text-6xl">{{expenses_today}}<span class="text-lg">лв.</span></p>
+            <p class="text-center">Total</p>
+            
         </div>
     </div>
 </div>
