@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class=" container grid grid-cols-3 grid-rows-6 gap-2">
-    <div class="row-span-1 bg-gray-200 p-5 rounded-lg text-center text-lg ">Add Article</div>
+    <div class="row-span-1 bg-gray-200 p-5 rounded-lg text-center text-lg ">Add Expense</div>
     <div class="row-span-3 bg-red-200 p-5 rounded-lg">1</div>
     <div class="row-span-3 bg-red-200 p-5 rounded-lg">1</div>
     <div class="row-span-5 bg-gray-200 p-5 rounded-lg border-black">
@@ -31,16 +31,31 @@
     <div class="row-span-3 bg-red-200 p-5 rounded-lg">1</div>
 </div>
 
-<div class="container w-full bg-gray-500 p-5 mt-10 rounded-lg">
-    fillters
+<div class="container w-full bg-gray-500 p-4 mt-10 rounded-lg flex justify-end">
+    <div class="w-full flex justify-between">
+        <h3 class="p-1 text-3xl">Filters</h3>
+        <div>
+            <button class="rounded-lg p-2 bg-yellow-300 m-1">Last week</button>
+            <button class="rounded-lg p-2 bg-yellow-300 m-1">Days &#8595; &#8593;</button>
+            <button class="rounded-lg p-2 bg-yellow-300 m-1">Amount &#8595; &#8593;</button>
+        </div>
+    </div>
+
 </div>
 
 <div class="container mt-10">
-    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full">article</div>
-    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full">article</div>
-    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full">article</div>
-    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full">article</div>
-    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full">article</div>
+    <div class="bg-gray-400 p-5 mt-2 mb-2 rounded-lg w-full grid grid-cols-3">
+        <p class="font-bold">Reason</p>
+        <p class="text-center font-bold">Amount</p>
+        <p class="text-center font-bold">Date</p>
+    </div>
+    {% for article in articles %}
+    <div class="bg-gray-200 p-5 mt-2 mb-2 rounded-lg w-full grid grid-cols-3">
+        <p>{{ article.reason }}</p>
+        <p class="text-center">{{ article.amount }} lv.</p>
+        <p class="text-center">{{ article.date|date:"l j/n/Y" }}</p>
+    </div>
 
+    {% endfor %}
 </div>
 {% endblock %}
