@@ -17,7 +17,11 @@ def index(request):
     expenses_today = articles_today.aggregate(Sum('amount'))['amount__sum']
 
     # Fetch articles for last month
+    start_last_month_date = datetime(2021, today_date.month, 15)
     next_month = today_date + relativedelta(months=1)
+    articles_last_month = ExpenseArticle.objects.filter(
+        date__range=(start_last_month_date, next_month))
+    expenses_last_month = articles_last_month.aggregate(Sum('amount'))['amount__sum']
 
     if request.method == 'POST':
         expenses_form = ExpenseArticleForm(request.POST, prefix='expense')
@@ -31,6 +35,7 @@ def index(request):
         'articles': articles.order_by('-date'),
         'today_date': today_date,
         'expenses_today': expenses_today,
+        'expenses_last_month': expenses_last_month,
         'next_month': next_month,
         'expenses_form': expenses_form
     })

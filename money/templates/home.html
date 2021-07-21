@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class=" container grid grid-cols-3 grid-rows-6 gap-2">
-    <div class="row-span-1 bg-gray-200 p-5 rounded-lg text-center text-lg ">Add Expense</div>
+    <div class="row-span-1 bg-gray-200 p-5 rounded-lg text-center text-lg underline">{{ today_date|date:"j F Y"}}</div>
     <!-- Today -->
     <div class="row-span-3 bg-red-200 p-5 rounded-lg flex justify-center relative">
         <p class="absolute left-0 top-0 pt-2 pb-2 pl-6 pr-6 rounded-tl-lg rounded-br-lg bg-indigo-500">Today</p>
@@ -16,12 +16,13 @@
     <div class="row-span-3 bg-red-200 p-5 rounded-lg flex justify-center relative">
         <p class="absolute left-0 top-0 pt-2 pb-2 pl-6 pr-6 rounded-tl-lg rounded-br-lg bg-indigo-500">Last Month</p>
         <div class="m-auto">
-            <p class="text-center font-bold text-6xl">{{expenses_today}}<span class="text-lg">лв.</span></p>
+            <p class="text-center font-bold text-6xl">{{expenses_last_month}}<span class="text-lg">лв.</span></p>
             <p class="text-center">15th {{ today_date|date:"F" }} - 15th {{ next_month|date:"F"  }}</p>
         </div>
     </div>
     <!-- Add Exprense Form -->
     <div class="row-span-5 bg-gray-200 p-5 rounded-lg border-black">
+        <div class=" bg-indigo-500 p-2 m-4 rounded-lg text-center text-lg ">Add Article</div>
         <form action="" method="POST">
             {% csrf_token %}
             
@@ -40,7 +41,7 @@
                 <input class="p-4 w-full rounded-lg">
             </div> -->
             <div class="m-4  flex justify-center">
-                <button class="w-full p-4 rounded-lg bg-green-300 font-bold" type="submit">
+                <button class="w-full p-4 rounded-lg bg-green-300 hover:bg-green-400 focus:outline-none font-bold" type="submit">
                     Send
                 </button>
             </div>
