@@ -22,19 +22,23 @@
     </div>
     <!-- Add Exprense Form -->
     <div class="row-span-5 bg-gray-200 p-5 rounded-lg border-black">
-        <form action="" method="">
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            {% for field in expenses_form %}
             <div class="m-4">
-                <lable>Reason</lable>
-                <input class="p-4 w-full rounded-lg">
+                {{ field.lable }}
+                {{ field }}
             </div>
-            <div class="m-4">
+            {% endfor %}
+            <!-- <div class="m-4">
                 <lable>Amount</lable>
                 <input class="p-4 w-full rounded-lg">
             </div>
             <div class="m-4">
                 <lable>Date</lable>
                 <input class="p-4 w-full rounded-lg">
-            </div>
+            </div> -->
             <div class="m-4  flex justify-center">
                 <button class="w-full p-4 rounded-lg bg-green-300 font-bold" type="submit">
                     Send
