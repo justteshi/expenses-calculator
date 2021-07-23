@@ -23,6 +23,15 @@ def index(request):
         date__range=(start_last_month_date, next_month))
     expenses_last_month = articles_last_month.aggregate(Sum('amount'))['amount__sum']
 
+    # Fetch articles for last 3 months and tehir sum
+    next_three_months = today_date + relativedelta(months=3)
+    articles_last_threee_month = ExpenseArticle.objects.filter(
+        date__range=(start_last_month_date, next_three_months))
+    expenses_last_three_months = articles_last_threee_month.aggregate(Sum('amount'))['amount__sum']
+
+    # Fetch all articles
+    articles_total_sum = articles.aggregate(Sum('amount'))['amount__sum']
+
     if request.method == 'POST':
         expenses_form = ExpenseArticleForm(request.POST, prefix='expense')
 
@@ -36,6 +45,8 @@ def index(request):
         'today_date': today_date,
         'expenses_today': expenses_today,
         'expenses_last_month': expenses_last_month,
+        'expenses_last_three_months': expenses_last_three_months,
+        'articles_total_sum': articles_total_sum,
         'next_month': next_month,
         'expenses_form': expenses_form
     })

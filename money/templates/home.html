@@ -8,7 +8,11 @@
     <div class="row-span-3 bg-red-200 p-5 rounded-lg flex justify-center relative">
         <p class="absolute left-0 top-0 pt-2 pb-2 pl-6 pr-6 rounded-tl-lg rounded-br-lg bg-indigo-500">Today</p>
         <div class="m-auto">
+            {% if expenses_today %}
             <p class="text-center font-bold text-6xl">{{expenses_today}}<span class="text-lg">лв.</span></p>
+            {% else %}
+            <p class="text-center font-bold text-6xl">0<span class="text-lg">лв.</span></p>
+            {% endif %}
             <p class="text-center">{{ today_date|date:"l j/n/Y" }}</p>
         </div>
     </div>
@@ -25,21 +29,12 @@
         <div class=" bg-indigo-500 p-2 m-4 rounded-lg text-center text-lg ">Add Article</div>
         <form action="" method="POST">
             {% csrf_token %}
-            
             {% for field in expenses_form %}
             <div class="m-4">
                 {{ field.lable }}
                 {{ field }}
             </div>
             {% endfor %}
-            <!-- <div class="m-4">
-                <lable>Amount</lable>
-                <input class="p-4 w-full rounded-lg">
-            </div>
-            <div class="m-4">
-                <lable>Date</lable>
-                <input class="p-4 w-full rounded-lg">
-            </div> -->
             <div class="m-4  flex justify-center">
                 <button class="w-full p-4 rounded-lg bg-green-300 hover:bg-green-400 focus:outline-none font-bold" type="submit">
                     Send
@@ -51,7 +46,7 @@
     <div class="row-span-3 bg-red-200 p-5 rounded-lg flex justify-center relative">
         <p class="absolute left-0 top-0 pt-2 pb-2 pl-6 pr-6 rounded-tl-lg rounded-br-lg bg-indigo-500">Last 3 Months</p>
         <div class="m-auto">
-            <p class="text-center font-bold text-6xl">{{expenses_today}}<span class="text-lg">лв.</span></p>
+            <p class="text-center font-bold text-6xl">{{ expenses_last_three_months }}<span class="text-lg">лв.</span></p>
             <p class="text-center">15th July - 15th October</p>
         </div>
     </div>
@@ -59,9 +54,8 @@
     <div class="row-span-3 bg-red-200 p-5 rounded-lg flex justify-center relative">
         <p class="absolute left-0 top-0 pt-2 pb-2 pl-6 pr-6 rounded-tl-lg rounded-br-lg bg-indigo-500">All Time</p>
         <div class="m-auto">
-            <p class="text-center font-bold text-6xl">{{expenses_today}}<span class="text-lg">лв.</span></p>
+            <p class="text-center font-bold text-6xl">{{ articles_total_sum }}<span class="text-lg">лв.</span></p>
             <p class="text-center">Total</p>
-            
         </div>
     </div>
 </div>
